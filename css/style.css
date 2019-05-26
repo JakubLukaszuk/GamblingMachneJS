@@ -4,67 +4,73 @@
     box-sizing: border-box;
 }
 
+
 .wrap {
-    width: 80%;
+    width: 90%;
     margin: 5vh auto 0;
-    font-family: 'open sans', roboto, sans-serif;
+    height: 100%;
+    overflow: hidden;
 }
 
-h1 {
+.banner {
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .game {
     display: flex;
     margin-bottom: 3vh;
-
 }
 
-.game div {
+.game .card {
     height: 30vh;
     flex-grow: 1;
-    margin: 5px;
+    margin: 30px;
     border: 3px solid gray;
+    position: relative;
+    background-image: -webkit-linear-gradient(top, rgba(43, 43, 43, 0.67) 0%, rgba(207, 207, 207, 0.10) 55%, rgba(17, 17, 17, 0.8) 100%);
+    overflow: hidden;
 }
+
 
 .play {
     text-align: center;
     display: flex;
 }
 
-.play input {
-    height: 90px;
-    font-size: 40px;
-    padding: 20px;
-    width: 400px;
-    border: 3px solid black;
-    text-align: center;
-}
 
 .play button {
-    width: 40%;
-    height: 90px;
+    width: 50%;
+    height: 74px;
     text-align: center;
-    padding: 20px 60px;
-    font-size: 40px;
+    font-size: 30px;
     text-transform: uppercase;
     background-color: #333;
     border: none;
     color: white;
     cursor: pointer;
     letter-spacing: 6px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+.roll {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+
 .panel {
-    margin: 80px 0 40px;
-    font-size: 26px;
+    margin: 50px 0 20px;
 }
 
 .panel,
 .score {
-    font-size: 26px;
+    font-size: 22px;
 }
 
 .panel span,
@@ -72,29 +78,6 @@ h1 {
     font-weight: bold;
 }
 
-@media (max-width: 1024px) {
-    .wrap {
-        width: 90%;
-    }
-
-    .play input {
-        height: 70px;
-        font-size: 30px;
-        display: block;
-        margin: 20px auto;
-
-    }
-
-    .play button {
-        height: 74px;
-        font-size: 30px;
-        display: block;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-}
 
 /* radio */
 .play-text {
@@ -112,7 +95,7 @@ h1 {
     align-items: flex-end;
     position: relative;
     width: 25%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 #radio_buttons a {
@@ -188,4 +171,77 @@ label {
     70% {
         transform: scale(0.5);
     }
+}
+
+@media (max-width: 1024px) {}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+    .play button {
+        width: 55%;
+        height: 100px;
+        font-size: 50px;
+        letter-spacing: 8px;
+    }
+
+    #radio_buttons {
+        margin: 0 auto;
+    }
+
+    .play-text {
+        font-size: 30px;
+    }
+
+    .panel {
+        margin: 100px 0 50px;
+    }
+
+    .panel,
+    .score {
+        font-size: 30px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .panel {
+        margin: 110px 0 60px;
+    }
+
+    .panel,
+    .score {
+        font-size: 35px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .panel {
+        margin: -100px 0 40px 0;
+    }
+
+    .play-text {
+        font-size: 40px;
+    }
+
+    .banner {
+        font-size: 30px;
+    }
+
+    .wrap {
+        width: 70%;
+    }
+
+    .play button {
+        margin: 0;
+    }
+
+
 }

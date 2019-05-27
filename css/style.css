@@ -1,3 +1,7 @@
+:root {
+    --endOfRoll: -90%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +33,7 @@
     margin: 30px;
     border: 3px solid gray;
     position: relative;
-    background-image: -webkit-linear-gradient(top, rgba(43, 43, 43, 0.67) 0%, rgba(207, 207, 207, 0.10) 55%, rgba(17, 17, 17, 0.8) 100%);
+    background-image: -webkit-linear-gradient(top, rgba(25, 25, 25, 0.8) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.05) 65%, rgba(25, 25, 25, 0.85) 100%);
     overflow: hidden;
 }
 
@@ -58,11 +62,79 @@
 }
 
 .roll {
+    top: 0%;
+    transform: translateY(2%);
+    left: 0;
     width: 100%;
     position: absolute;
     z-index: -1;
 }
 
+/* roll animations */
+.opening1 {
+    animation: drawAnimation1 1s linear forwards;
+}
+
+.opening2 {
+    animation: drawAnimation2 2s linear forwards;
+}
+
+.opening3 {
+    animation: drawAnimation3 3s linear forwards;
+}
+
+.opening4 {
+    animation: drawAnimation4 4s linear forwards;
+}
+
+
+.goTo1 {
+    animation: animationGoTo1 1s ease-out forwards;
+}
+
+.goTo2 {
+    animation: animationGoTo2 0.9s ease-out forwards;
+}
+
+.goTo3 {
+    animation: animationGoTo3 0.18s ease-out forwards;
+}
+
+.goTo4 {
+    animation: animationGoTo4 0.27s ease-out forwards;
+}
+
+.goTo5 {
+    animation: animationGoTo5 0.36s ease-out forwards;
+}
+
+.goTo6 {
+    animation: animationGoTo6 0.45s ease-out forwards;
+}
+
+.goTo7 {
+    animation: animationGoTo7 0.54s ease-out forwards;
+}
+
+.goTo8 {
+    animation: animationGoTo8 0.63s ease-out forwards;
+}
+
+.goTo9 {
+    animation: animationGoTo9 0.72s ease-out forwards;
+}
+
+.goTo10 {
+    animation: animationGoTo10 0.81s ease-out forwards;
+}
+
+.goTo11 {
+    animation: animationGoTo11 0.90s ease-out forwards;
+}
+
+.goTo12 {
+    animation: animationGoTo12 1s ease-out forwards;
+}
 
 .panel {
     margin: 50px 0 20px;
@@ -127,7 +199,7 @@ label {
     background: #e4e4e4;
     transition: transform 1s;
     border-radius: 50%;
-    animation: .3s forwards ease-in-out;
+    animation: .3s backwards ease-in-out;
     transition: 0.2s left .05s ease-in-out;
 }
 
@@ -176,13 +248,23 @@ label {
 @media (max-width: 1024px) {}
 
 /* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {}
+@media only screen and (min-width : 320px) {
+    .game .card {
+        height: 20vh;
+        margin: 5px
+    }
+}
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {}
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+
+    .game .card {
+        height: 30vh;
+    }
+
 
     .play button {
         width: 55%;
@@ -215,6 +297,11 @@ label {
         margin: 110px 0 60px;
     }
 
+    .game .card {
+        height: 35vh;
+        margin: 20px;
+    }
+
     .panel,
     .score {
         font-size: 35px;
@@ -236,12 +323,309 @@ label {
     }
 
     .wrap {
-        width: 70%;
+        width: 65%;
     }
 
     .play button {
         margin: 0;
     }
 
+    .game .card {
+        height: 45vh;
+        margin: 20px;
+    }
+}
 
+@keyframes drawAnimation1 {
+    0% {
+        transform: translateY(0);
+    }
+
+    48% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    52.1% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(var(--endOfRoll));
+    }
+}
+
+@keyframes drawAnimation2 {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    40% {
+        transform: translateY(0);
+    }
+
+    60% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    80% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(var(--endOfRoll));
+    }
+}
+
+@keyframes drawAnimation3 {
+    0% {
+        transform: translateY(0);
+    }
+
+    14.3% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    28.6% {
+        transform: translateY(0);
+    }
+
+    42.9% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    57.2% {
+        transform: translateY(0);
+    }
+
+    71.5% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    85.3% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(var(--endOfRoll));
+    }
+}
+
+@keyframes drawAnimation4 {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    11.11% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    22.22% {
+        transform: translateY(0);
+    }
+
+    33.33% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    44.44% {
+        transform: translateY(0);
+    }
+
+    55.55% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    66.66% {
+        transform: translateY(0);
+    }
+
+    77.77% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    88.88% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(var(--endOfRoll));
+    }
+}
+
+
+@keyframes animationGoTo1 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    8.3333% {
+        transform: translateY(2%);
+    }
+
+    90% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    100% {
+        transform: translateY(2%);
+    }
+}
+
+@keyframes animationGoTo2 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-6%);
+    }
+}
+
+@keyframes animationGoTo3 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    43% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-14%);
+    }
+}
+
+@keyframes animationGoTo4 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    38% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-22%);
+    }
+}
+
+@keyframes animationGoTo5 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    33% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-31%);
+    }
+}
+
+@keyframes animationGoTo6 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    30% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-39%);
+    }
+}
+
+@keyframes animationGoTo7 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    26% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-47%);
+    }
+}
+
+@keyframes animationGoTo8 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    22% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-55%);
+    }
+}
+
+@keyframes animationGoTo9 {
+    0% {
+        transform: translateY(-endOfRoll);
+    }
+
+    19% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-63.5%);
+    }
+}
+
+@keyframes animationGoTo10 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    14% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-72%);
+    }
+}
+
+@keyframes animationGoTo11 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    10% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-80%);
+    }
+}
+
+@keyframes animationGoTo12 {
+    0% {
+        transform: translateY(var(--endOfRoll));
+    }
+
+    8.3333% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(var(--endOfRoll));
+    }
 }

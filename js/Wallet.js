@@ -10,7 +10,8 @@ class Wallet {
 
         this.increaseWallet = (value) => {
             if (typeof value === "number" && !isNaN(value)) {
-                return _money + value;
+                _money = _money + value;
+                return _money;
             } else {
                 console.log(typeof value);
                 throw new Error("Error reload page")
@@ -19,7 +20,8 @@ class Wallet {
 
         this.decreaseWallet = (value) => {
             if (typeof value === "number" && !isNaN(value)) {
-                return _money - value;
+                _money = _money - value;
+                return _money;
             } else {
                 console.log(typeof value);
                 throw new Error("Error reload page")

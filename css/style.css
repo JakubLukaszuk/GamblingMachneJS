@@ -23,6 +23,7 @@
 }
 
 .game {
+    position: relative;
     display: flex;
     margin-bottom: 3vh;
 }
@@ -44,6 +45,7 @@
 }
 
 
+
 .play button {
     width: 50%;
     height: 74px;
@@ -63,12 +65,159 @@
 
 .roll {
     top: 0%;
-    transform: translateY(2%);
+    transform: translateY(2.5%);
     left: 0;
     width: 100%;
     position: absolute;
     z-index: -1;
 }
+
+.game .controll {
+    width: 70%;
+    height: 40%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border: 5px solid rgb(80, 43, 0);
+    position: absolute;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.gold {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
+
+.white {
+    background: white;
+}
+
+.diamond {
+    background: -webkit-linear-gradient(top, #B9F2FF 0%, #AAE3F0 100%);
+    border: 4px solid #9BD4E1;
+
+}
+
+/* .myButton:hover {
+
+}
+
+.myButton:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.4);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+
+}
+
+.myButton:hover:after {
+    width: 120%;
+    background-color: rgba(255,255,255,0);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+} */
+
+
+.panel {
+    margin: 50px 0 20px;
+}
+
+.panel,
+.score {
+    font-size: 22px;
+}
+
+.panel span,
+.score span {
+    font-weight: bold;
+}
+
+
+/* radio */
+.play-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: flex-start;
+    border: 5px solid rgb(80, 43, 0);
+    padding: 5px;
+
+    border-radius: 15px;
+}
+
+/* .play-text a {} */
+
+#radio_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    width: 25%;
+    /* margin: 0 auto; */
+}
+
+#radio_buttons a {
+    display: block;
+}
+
+input[type="radio"] {
+    position: absolute;
+    right: 1000%;
+}
+
+label {
+    float: left;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1% 2.5%;
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(89, 104, 13, 1) 0%, rgba(89, 104, 13, 1) 15%, rgba(129, 141, 68, 1) 100%);
+    /* Chrome10+,Safari5.1+ */
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+#slider {
+    position: absolute;
+    left: 65%;
+    top: 0%;
+    width: 20%;
+    padding-bottom: 20%;
+    margin: 6% 0 0 7%;
+    background: #e4e4e4;
+    transition: transform 1s;
+    border-radius: 50%;
+    animation: .3s backwards ease-in-out;
+    transition: 0.2s left .05s ease-in-out;
+}
+
+
+#input1:checked~#slider {
+    animation-name: input1;
+    top: 0;
+}
+
+#input2:checked~#slider {
+    animation-name: input2;
+    top: 33.33%;
+}
+
+#input3:checked~#slider {
+    animation-name: input3;
+    top: 66.66%;
+}
+
 
 /* roll animations */
 .opening1 {
@@ -89,7 +238,7 @@
 
 
 .goTo1 {
-    animation: animationGoTo1 1s ease-out forwards;
+    animation: animationGoTo1 1s linear forwards;
 }
 
 .goTo2 {
@@ -136,89 +285,6 @@
     animation: animationGoTo12 1s ease-out forwards;
 }
 
-.panel {
-    margin: 50px 0 20px;
-}
-
-.panel,
-.score {
-    font-size: 22px;
-}
-
-.panel span,
-.score span {
-    font-weight: bold;
-}
-
-
-/* radio */
-.play-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: flex-start;
-}
-
-/* .play-text a {} */
-
-#radio_buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    position: relative;
-    width: 25%;
-    /* margin: 0 auto; */
-}
-
-#radio_buttons a {
-    display: block;
-}
-
-input[type="radio"] {
-    position: absolute;
-    right: 1000%;
-}
-
-label {
-    float: left;
-    width: 30%;
-    padding-bottom: 30%;
-    margin: 1% 2.5%;
-    background: rgba(0, 0, 0, .3);
-    border-radius: 20%;
-    cursor: pointer;
-}
-
-#slider {
-    position: absolute;
-    left: 65%;
-    top: 0%;
-    width: 20%;
-    padding-bottom: 20%;
-    margin: 6% 0 0 7%;
-    background: #e4e4e4;
-    transition: transform 1s;
-    border-radius: 50%;
-    animation: .3s backwards ease-in-out;
-    transition: 0.2s left .05s ease-in-out;
-}
-
-
-#input1:checked~#slider {
-    animation-name: input1;
-    top: 0;
-}
-
-#input2:checked~#slider {
-    animation-name: input2;
-    top: 33.33%;
-}
-
-#input3:checked~#slider {
-    animation-name: input3;
-    top: 66.66%;
-}
-
 
 @keyframes input1 {
 
@@ -245,107 +311,8 @@ label {
     }
 }
 
-@media (max-width: 1024px) {}
-
-/* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {
-    .game .card {
-        height: 20vh;
-        margin: 5px
-    }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-
-    .game .card {
-        height: 30vh;
-    }
-
-
-    .play button {
-        width: 55%;
-        height: 100px;
-        font-size: 50px;
-        letter-spacing: 8px;
-    }
-
-    #radio_buttons {
-        margin: 0 auto;
-    }
-
-    .play-text {
-        font-size: 30px;
-    }
-
-    .panel {
-        margin: 100px 0 50px;
-    }
-
-    .panel,
-    .score {
-        font-size: 30px;
-    }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-    .panel {
-        margin: 110px 0 60px;
-    }
-
-    .game .card {
-        height: 35vh;
-        margin: 20px;
-    }
-
-    .panel,
-    .score {
-        font-size: 35px;
-    }
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-    .panel {
-        margin: -100px 0 40px 0;
-    }
-
-    .play-text {
-        font-size: 40px;
-    }
-
-    .banner {
-        font-size: 30px;
-    }
-
-    .wrap {
-        width: 65%;
-    }
-
-    .play button {
-        margin: 0;
-    }
-
-    .game .card {
-        height: 45vh;
-        margin: 20px;
-    }
-}
-
 @keyframes drawAnimation1 {
     0% {
-        transform: translateY(0);
-    }
-
-    48% {
-        transform: translateY(var(--endOfRoll));
-    }
-
-    52.1% {
         transform: translateY(0);
     }
 
@@ -464,7 +431,7 @@ label {
     }
 
     8.3333% {
-        transform: translateY(2%);
+        transform: translateY(2.5%);
     }
 
     90% {
@@ -472,7 +439,7 @@ label {
     }
 
     100% {
-        transform: translateY(2%);
+        transform: translateY(2.5%);
     }
 }
 
@@ -626,6 +593,98 @@ label {
     }
 
     100% {
-        transform: translateY(var(--endOfRoll));
+        transform: translateY(-89%);
+    }
+}
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+    .game .card {
+        height: 20vh;
+        margin: 5px
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+    .game .card {
+        height: 30vh;
+    }
+
+
+    .play button {
+        width: 55%;
+        height: 100px;
+        font-size: 50px;
+        letter-spacing: 8px;
+    }
+
+    #radio_buttons {
+        margin: 0 auto;
+    }
+
+    .play-text {
+        font-size: 30px;
+    }
+
+    .panel {
+        margin: 100px 0 50px;
+    }
+
+    .panel,
+    .score {
+        font-size: 30px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .panel {
+        margin: -50px 0 60px;
+    }
+
+    .game .card {
+        height: 35vh;
+        margin: 20px;
+    }
+
+    .panel,
+    .score {
+        font-size: 35px;
+    }
+}
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .panel {
+        margin: -90px 0 40px 0;
+    }
+
+    .play-text {
+        font-size: 40px;
+    }
+
+    .banner {
+        font-size: 30px;
+    }
+
+    .wrap {
+        width: 65%;
+    }
+
+    .play .buttons button {
+        margin: 0;
+    }
+
+    .game .card {
+        height: 43vh;
+        margin: 20px;
     }
 }

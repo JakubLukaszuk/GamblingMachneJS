@@ -16,24 +16,26 @@
       <h1>Gambling machine</h1>
     </div>
     <section class="game">
-
+      <div class="controll">
+        <span class="txt"></span>
+      </div>
       <div class="card">
-        <img class="roll" src="/img/rollTransparent.png"></img>
+        <img class="roll" src="/img/roll.jpg"></img>
         <div class="light"></div>
       </div>
 
       <div class="card">
-        <img class="roll" src="/img/rollTransparent.png"></img>
+        <img class="roll" src="/img/roll.jpg"></img>
         <div class="light"></div>
       </div>
 
       <div class="card">
-        <img class="roll" src="/img/rollTransparent.png"></img>
+        <img class="roll" src="/img/roll.jpg"></img>
         <div class="light"></div>
       </div>
 
       <div class="card">
-        <img class="roll" src="/img/rollTransparent.png"></img>
+        <img class="roll" src="/img/roll.jpg"></img>
         <div class="light"></div>
       </div>
 
@@ -43,13 +45,13 @@
       <button id="start">Draw</button>
       <div id="radio_buttons">
 
-        <input type="radio" name="sec" id="input1" />
+        <input type="radio" name="bid" id="input1" value="10" />
         <label for="input1"></label>
 
-        <input type="radio" name="sec" id="input2" />
+        <input type="radio" name="bid" id="input2" value="30" />
         <label for="input2"></label>
 
-        <input type="radio" name="sec" id="input3" />
+        <input type="radio" name="bid" id="input3" value="50" />
         <label for="input3"></label>
         <span id="slider"></span>
       </div>
@@ -63,11 +65,13 @@
     <section class="panel">Your money: <span class="wallet"></span></section>
 
     <section class="score">
-      <span class="result"></span> You played <span class="number"></span> games, you <span class="win"></span> wow
-      and u <span class="loss"></span> losed
+      <span class="result">Won games: <span class="win"></span>
     </section>
   </div>
+  <script src="/js/Stats.js"></script>
+  <script src="/js/Wallet.js"></script>
   <script src="/js/Draw.js"></script>
+  <script src="/js/Result.js"></script>
   <script src="/js/Game.js"></script>
 </body>
 

@@ -11,7 +11,7 @@ class Draw {
             const result = this.options[index]
             drawResult.push(result)
         }
-        return drawResult
+        return drawResult;
 
     }
 }

@@ -25,19 +25,9 @@ html {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    display: flex;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 80%;
 }
 
 .modal-content .close {
@@ -54,6 +44,68 @@ html {
     cursor: pointer;
 }
 
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80%;
+}
+
+.modal-content>.roll-info:nth-child(2)>img {
+    content: url("/img/chery.jpg");
+}
+
+.modal-content>.roll-info:nth-child(3)>img {
+    content: url("/img/lemon.jpg");
+}
+
+.modal-content>.roll-info:nth-child(4)>img {
+    content: url("/img/gold.jpg");
+}
+
+.modal-content>.roll-info:nth-child(5)>img {
+    content: url("/img/Dollar.jpg");
+}
+
+.modal-content>.roll-info:nth-child(6)>img {
+    content: url("/img/diamond.jpg");
+}
+
+.modal-content>.roll-info:nth-child(7)>img {
+    content: url("/img/reroll.jpg");
+}
+
+
+.roll-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.roll-info-streigh {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+}
+
+
+.roll-text {
+    font-size: 1.3rem;
+    width: 50%;
+    align-self: center;
+}
+
+
+
+.roll-card {
+    max-height: 100%;
+    width: 30%;
+    padding: 10px;
+}
+
 
 .wrap {
     width: 90%;
@@ -61,7 +113,6 @@ html {
     height: 100%;
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
-
 }
 
 .banner {
@@ -120,37 +171,41 @@ html {
     justify-content: space-between;
 }
 
-#show-legend,
-#start {
+
+
+#start,
+#show-legend {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    animation-name: glow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    border: 1px solid black;
+    border-radius: 3px;
     width: 80%;
     margin: 0 5px;
-
 }
 
 #show-legend {
     font-size: 1.5rem;
     height: 35%;
+    background-color: #6513e9;
+    box-shadow: 0px 3px 0px #6513e9, 0px 3px 5px rgba(0, 0, 0, .5);
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(221, 193, 248), transparent);
 }
 
+
 #start {
-    width: 80%;
     height: 50%;
     font-size: 24px;
     text-transform: uppercase;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
     letter-spacing: 6px;
     text-align: center;
     display: inline-block;
-    font-weight: bold;
     background-color: #e95713;
     font-size: 24px;
-    border: 1px solid black;
     box-shadow: 0px 3px 0px #e95713, 0px 3px 5px rgba(0, 0, 0, .5);
-    animation-name: glow;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
     background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(248, 193, 193), transparent);
 }
 
@@ -319,27 +374,23 @@ input[type="radio"] {
 
 
 #input1:checked~#button-bid-1 {
-    /* animation-name: inputAnimation; */
     box-shadow: 0px 2px 0px #e92b2b, 0px 1px 2px 2px #e92b2b;
     background-color: #ff0000;
     background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
 }
 
 #input2:checked~#button-bid-2 {
-    /* animation-name: inputAnimation; */
     box-shadow: 0px 2px 0px #178d13, 0px 1px 2px 2px #178d13;
     background-color: #08b102;
     background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
 }
 
 #input3:checked~#button-bid-3 {
-    /* animation-name: inputAnimation; */
     box-shadow: 0px 2px 0px #135ee9, 0px 1px 2px 2px #135ee9;
     background-color: #0059ff;
     background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
 
 }
-
 
 
 #input2:checked~#slider {

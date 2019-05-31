@@ -5,9 +5,17 @@ class Game {
         this.draw = new Draw();
         this.startButton = document.getElementById('start');
         this.startButton.addEventListener('click', this.startGame.bind(this));
+
+        this.modalLegend = document.getElementById("legend-modal");
+        this.legendButton = document.getElementById("show-legend");
+        this.legendButton.addEventListener('click', this.showLegend.bind(this));
+        this.closeModal = document.querySelector(".modal-content .close");
+        this.closeModal.addEventListener('click', this.closeLegend.bind(this));
+
         this.rollers = [...document.querySelectorAll('.card .roll')];
         this.spanWins = document.querySelector('.score span.win');
         this.spanWallet = document.querySelector('.panel span.wallet');
+        this.infromPanel = document.querySelector('.inform');
         this.init();
     }
 
@@ -46,21 +54,43 @@ class Game {
             }
 
             const result = Result.checkWinnerAndGetValue(results);
+            console.log(result);
+
             if (result) {
+
                 that.stats.addWon();
                 setTimeout(function () {
                     that.wallet.increaseWallet(Result.getReward(result, bid));
                     that.setText(that.wallet.getWalletValue());
-
+                    that.infromPanel.classList.add("move");
+                    if (result == 1) {
+                        that.infromPanel.classList.add("gold");
+                    }
                 }, 4010);
+
+                setTimeout(function () {
+                    that.startButton.removeAttribute('disabled');
+                    that.infromPanel.classList.remove("move");
+                    that.infromPanel.classList.add("");
+                }, 7500);
+
+            } else {
+                setTimeout(function () {
+                    that.startButton.removeAttribute('disabled');
+                }, 4500);
             }
 
-            setTimeout(function () {
-                that.startButton.removeAttribute('disabled');
-            }, 4500);
 
             this.setText(this.wallet.getWalletValue());
         }
+    }
+
+    showLegend() {
+        this.modalLegend.style.display = "block";
+    }
+
+    closeLegend() {
+        this.modalLegend.style.display = "none";
     }
 }
 

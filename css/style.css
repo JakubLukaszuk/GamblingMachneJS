@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto&display=swap');
+
+
 :root {
     --endOfRoll: -90%;
+}
+
+html {
+    font-size: 12px;
 }
 
 * {
@@ -8,18 +15,62 @@
     box-sizing: border-box;
 }
 
+.modal {
+    font-family: 'Roboto', sans-serif;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    display: flex;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80%;
+}
+
+.modal-content .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 .wrap {
     width: 90%;
     margin: 5vh auto 0;
     height: 100%;
     overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .banner {
+    background-color: white;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
 }
 
 .game {
@@ -28,11 +79,29 @@
     margin-bottom: 3vh;
 }
 
+.card:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: none;
+}
+
+.card:hover:after {
+    width: 120%;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 0.3s ease-out;
+}
+
 .game .card {
     height: 30vh;
     flex-grow: 1;
     margin: 30px;
-    border: 3px solid gray;
+    border: 2px solid gray;
+    box-shadow: 0px 1px 0px gray, 0px 2px 5px rgba(0, 0, 0, .5);
     position: relative;
     background-image: -webkit-linear-gradient(top, rgba(25, 25, 25, 0.8) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.05) 65%, rgba(25, 25, 25, 0.85) 100%);
     overflow: hidden;
@@ -44,26 +113,86 @@
     display: flex;
 }
 
+.start-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+#show-legend,
+#start {
+    width: 80%;
+    margin: 0 5px;
 
-.play button {
-    width: 50%;
-    height: 74px;
-    text-align: center;
-    font-size: 30px;
+}
+
+#show-legend {
+    font-size: 1.5rem;
+    height: 35%;
+}
+
+#start {
+    width: 80%;
+    height: 50%;
+    font-size: 24px;
     text-transform: uppercase;
     background-color: #333;
-    border: none;
     color: white;
     cursor: pointer;
     letter-spacing: 6px;
-    display: block;
     text-align: center;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: inline-block;
+    font-weight: bold;
+    background-color: #e95713;
+    font-size: 24px;
+    border: 1px solid black;
+    box-shadow: 0px 3px 0px #e95713, 0px 3px 5px rgba(0, 0, 0, .5);
+    animation-name: glow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(248, 193, 193), transparent);
 }
 
+#start:hover {
+    animation-name: fullglow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes glow {
+    from {
+        opacity: 0.9;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    50% {
+        opacity: 0.6;
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    to {
+        opacity: 0.9;
+        -webkit-animation-timing-function: ease-in;
+    }
+}
+
+@keyframes fullglow {
+    from {
+        opacity: 0.4;
+        -moz-animation-timing-function: ease-out;
+    }
+
+    to {
+        opacity: 0.9;
+        -webkit-animation-timing-function: ease-in;
+    }
+}
+
+
 .roll {
+    content: url("/img/rollMobile.jpg");
     top: 0%;
     transform: translateY(2.5%);
     left: 0;
@@ -72,12 +201,11 @@
     z-index: -1;
 }
 
-.game .controll {
+.game .inform {
     width: 70%;
     height: 40%;
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    left: -70%;
     border: 5px solid rgb(80, 43, 0);
     position: absolute;
     border-radius: 15px;
@@ -99,72 +227,40 @@
 
 }
 
-/* .myButton:hover {
-
+.move {
+    animation: showBannerAnimation 2s 1s;
 }
-
-.myButton:after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 0%;
-    height: 100%;
-    background-color: rgba(255,255,255,0.4);
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
-    transition: none;
-
-}
-
-.myButton:hover:after {
-    width: 120%;
-    background-color: rgba(255,255,255,0);
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-} */
-
 
 .panel {
-    margin: 50px 0 20px;
+    width: 80%;
+    margin: 30px 0 20px;
+    border: 2px solid black;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
 }
 
-.panel,
-.score {
-    font-size: 22px;
+.panel {
+    font-size: 20px;
 }
 
-.panel span,
-.score span {
+.panel .score {
+    margin-top: 15px;
+}
+
+.panel span {
     font-weight: bold;
 }
 
 
 /* radio */
-.play-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: flex-start;
-    border: 5px solid rgb(80, 43, 0);
-    padding: 5px;
 
-    border-radius: 15px;
-}
-
-/* .play-text a {} */
 
 #radio_buttons {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     position: relative;
-    width: 25%;
+    width: 50%;
     /* margin: 0 auto; */
 }
 
@@ -174,48 +270,84 @@
 
 input[type="radio"] {
     position: absolute;
-    right: 1000%;
+    visibility: hidden;
 }
 
-label {
-    float: left;
-    width: 30%;
-    padding-bottom: 30%;
-    margin: 1% 2.5%;
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(89, 104, 13, 1) 0%, rgba(89, 104, 13, 1) 15%, rgba(129, 141, 68, 1) 100%);
-    /* Chrome10+,Safari5.1+ */
-    border-radius: 20%;
+.play label {
+    width: 60%;
     cursor: pointer;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 2% 2.5%;
+    border-radius: 3px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 5px;
+    font-size: 15px;
+    border: 1px solid black;
+    animation-iteration-count: infinite;
+    transition: 0.3s;
+    letter-spacing: 2px;
 }
 
-#slider {
-    position: absolute;
-    left: 65%;
-    top: 0%;
-    width: 20%;
-    padding-bottom: 20%;
-    margin: 6% 0 0 7%;
-    background: #e4e4e4;
-    transition: transform 1s;
-    border-radius: 50%;
-    animation: .3s backwards ease-in-out;
-    transition: 0.2s left .05s ease-in-out;
+.play label:hover {
+    animation-name: fullglow;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#button-bid-1 {
+    background-color: #e91313;
+    box-shadow: 0px 2px 0px #e91313, 0px 2px 5px rgba(0, 0, 0, .5);
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(252, 157, 157), transparent);
+}
+
+#button-bid-2 {
+    background-color: #178d13;
+    box-shadow: 0px 2px 0px #178d13, 0px 2px 5px rgba(0, 0, 0, .5);
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(184, 252, 157), transparent);
+}
+
+#button-bid-3 {
+    background-color: #135ee9;
+    box-shadow: 0px 2px 0px #135ee9, 0px 2px 5px rgba(0, 0, 0, .5);
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(157, 238, 252), transparent);
 }
 
 
-#input1:checked~#slider {
-    animation-name: input1;
-    top: 0;
+#input1:checked~#button-bid-1 {
+    /* animation-name: inputAnimation; */
+    box-shadow: 0px 2px 0px #e92b2b, 0px 1px 2px 2px #e92b2b;
+    background-color: #ff0000;
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
 }
+
+#input2:checked~#button-bid-2 {
+    /* animation-name: inputAnimation; */
+    box-shadow: 0px 2px 0px #178d13, 0px 1px 2px 2px #178d13;
+    background-color: #08b102;
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+}
+
+#input3:checked~#button-bid-3 {
+    /* animation-name: inputAnimation; */
+    box-shadow: 0px 2px 0px #135ee9, 0px 1px 2px 2px #135ee9;
+    background-color: #0059ff;
+    background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+
+}
+
+
 
 #input2:checked~#slider {
-    animation-name: input2;
-    top: 33.33%;
+    animation-name: inputAnimation;
 }
 
 #input3:checked~#slider {
-    animation-name: input3;
-    top: 66.66%;
+    animation-name: inputAnimation;
 }
 
 
@@ -286,7 +418,9 @@ label {
 }
 
 
-@keyframes input1 {
+/* button */
+
+@keyframes inputAnimation {
 
     30%,
     70% {
@@ -295,21 +429,30 @@ label {
 }
 
 
-@keyframes input2 {
+/* banner */
 
-    30%,
-    70% {
-        transform: scale(0.5);
+@keyframes showBannerAnimation {
+    0% {
+        transform: translateX(0);
     }
+
+    33.33% {
+        transform: translateX(120%);
+    }
+
+    66.66% {
+        transform: translateX(120%);
+    }
+
+    100% {
+        transform: translateX(0);
+
+    }
+
+
 }
 
-@keyframes input3 {
-
-    30%,
-    70% {
-        transform: scale(0.5);
-    }
-}
+/* roll */
 
 @keyframes drawAnimation1 {
     0% {
@@ -603,7 +746,7 @@ label {
 @media only screen and (min-width : 320px) {
     .game .card {
         height: 20vh;
-        margin: 5px
+        margin: 5px;
     }
 }
 
@@ -613,10 +756,18 @@ label {
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
 
+    .play label {
+        padding: 15px 10px;
+        font-size: 15px;
+        border: 1px solid black;
+        animation-iteration-count: infinite;
+        transition: 0.3s;
+        letter-spacing: 2px;
+    }
+
     .game .card {
         height: 30vh;
     }
-
 
     .play button {
         width: 55%;
@@ -658,6 +809,11 @@ label {
     .score {
         font-size: 35px;
     }
+
+    .play label {
+        padding: 20px 15px;
+        font-size: 18px;
+    }
 }
 
 
@@ -686,5 +842,10 @@ label {
     .game .card {
         height: 43vh;
         margin: 20px;
+    }
+
+    .play label {
+        padding: 25px 20px;
+        font-size: 24px;
     }
 }

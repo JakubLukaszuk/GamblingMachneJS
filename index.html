@@ -5,67 +5,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Jednoręki bandyta</title>
+  <title>Gambling machine</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <div id="legend-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+    </div>
+
+  </div>
   <div class="wrap">
 
     <div class="banner">
       <h1>Gambling machine</h1>
     </div>
     <section class="game">
-      <div class="controll">
+      <div class="inform">
         <span class="txt"></span>
       </div>
       <div class="card">
-        <img class="roll" src="/img/roll.jpg"></img>
+        <img class="roll"></img>
         <div class="light"></div>
       </div>
 
       <div class="card">
-        <img class="roll" src="/img/roll.jpg"></img>
+        <img class="roll"></img>
         <div class="light"></div>
       </div>
 
       <div class="card">
-        <img class="roll" src="/img/roll.jpg"></img>
+        <img class="roll"></img>
         <div class="light"></div>
       </div>
 
       <div class="card">
-        <img class="roll" src="/img/roll.jpg"></img>
+        <img class="roll"></img>
         <div class="light"></div>
       </div>
 
     </section>
 
     <section class="play">
-      <button id="start">Draw</button>
+      <div class="start-wrapper">
+        <button id="start">Draw</button>
+        <button id="show-legend">Show legend</button>
+      </div>
       <div id="radio_buttons">
-
         <input type="radio" name="bid" id="input1" value="10" />
-        <label for="input1"></label>
+        <label for="input1" id="button-bid-1">10$</label>
 
         <input type="radio" name="bid" id="input2" value="30" />
-        <label for="input2"></label>
+        <label for="input2" id="button-bid-2">30$</label>
 
         <input type="radio" name="bid" id="input3" value="50" />
-        <label for="input3"></label>
-        <span id="slider"></span>
+        <label for="input3" id="button-bid-3">50$</label>
       </div>
-      <section class="play-text">
+      <!-- <section class="play-text">
         <span>10$</span>
         <span>30$</span>
         <span>50$</span>
-      </section>
+      </section> -->
     </section>
 
-    <section class="panel">Your money: <span class="wallet"></span></section>
+    <section class="panel">Your money: <span class="wallet"></span>
 
-    <section class="score">
-      <span class="result">Won games: <span class="win"></span>
+      <section class="score">Won draws: <span class="win"></span>
+      </section>
     </section>
   </div>
   <script src="/js/Stats.js"></script>

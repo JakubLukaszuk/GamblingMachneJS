@@ -15,7 +15,9 @@ class Game {
         this.rollers = [...document.querySelectorAll('.card .roll')];
         this.spanWins = document.querySelector('.score span.win');
         this.spanWallet = document.querySelector('.panel span.wallet');
+
         this.infromPanel = document.querySelector('.inform');
+        this.lightForm = document.querySelector('.light');
         this.init();
     }
 
@@ -32,13 +34,11 @@ class Game {
 
     startGame() {
         const bid = document.querySelector('input[name="bid"]:checked').value;
+        const that = this;
+
         if (Number(bid) <= this.wallet.getWalletValue()) {
-            const that = this;
             const results = [...this.draw.drawResult()];
             this.wallet.decreaseWallet(Number(bid));
-            console.log(bid);
-            console.log(results);
-
 
             for (let index = 0; index < this.rollers.length; index++) {
                 that.rollers[index].className = "roll";
@@ -50,7 +50,6 @@ class Game {
                     that.rollers[index].classList.remove(`opening${index+1}`);
                     that.rollers[index].classList.add(`goTo${results[index]}`);
                 }, (index + 1) * 1000);
-
             }
 
             const result = Result.checkWinnerAndGetValue(results);
@@ -62,26 +61,44 @@ class Game {
                 setTimeout(function () {
                     that.wallet.increaseWallet(Result.getReward(result, bid));
                     that.setText(that.wallet.getWalletValue());
-                    that.infromPanel.classList.add("move");
-                    if (result == 1) {
-                        that.infromPanel.classList.add("gold");
+                    if (result === 1.5) {
+                        that.lightForm.classList.add('lightingBlue');
+                    } else if (result === 2) {
+                        that.lightForm.classList.add('lightingRed');
+                    } else if (result === 3) {
+                        that.lightForm.classList.add('lightingYellowRed');
+                    } else if (result === 5) {
+                        that.lightForm.classList.add('lightingYellowLong');
+                    } else if (result === 7) {
+                        that.lightForm.classList.add('lightingGreen');
+                    } else if (result === 1) {
+                        that.lightForm.classList.add('lightBlue');
+                    } else {
+                        that.lightForm.classList.add('lightingDiamond');
                     }
-                }, 4010);
+                }, 5000);
 
                 setTimeout(function () {
                     that.startButton.removeAttribute('disabled');
-                    that.infromPanel.classList.remove("move");
-                    that.infromPanel.classList.add("");
-                }, 7500);
+                    that.lightForm.className = 'light';
+                    that.setText(that.wallet.getWalletValue());
+                }, 6000);
 
             } else {
                 setTimeout(function () {
                     that.startButton.removeAttribute('disabled');
+                    that.setText(that.wallet.getWalletValue());
                 }, 4500);
             }
 
-
-            this.setText(this.wallet.getWalletValue());
+        } else {
+            that.startButton.setAttribute('disabled', true);
+            that.infromPanel.classList.add("move");
+            that.infromPanel.textContent = "U don't have enought money!"
+            setTimeout(function () {
+                that.startButton.removeAttribute('disabled');
+                that.infromPanel.className = "inform";
+            }, 3010);
         }
     }
 

@@ -15,6 +15,96 @@ html {
     box-sizing: border-box;
 }
 
+.light {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+}
+
+
+.lightingBlue {
+    animation: lightingRedAnimation 0.1s infinite;
+}
+
+.lightingRed {
+    animation: lightingRedAnimation 0.1s infinite;
+}
+
+.lightingYellow {
+    animation: lightingYellowAnimation 0.1s infinite;
+}
+
+.lightingYellowLong {
+    animation: lightingYellowAnimation 0.3s infinite;
+}
+
+.lightingDiamond {
+    animation: lightingDiamondAnimation 0.1s infinite;
+}
+
+.lightingGreen {
+    animation: lightingGreenAnimation 0.1s infinite;
+}
+
+.lightBlue {
+    background: -webkit-linear-gradient(top, rgba(45, 137, 223, 0.4) 0%, rgba(45, 167, 223, 0.025) 25%, rgba(45, 167, 223, 0.025) 85%, rgba(45, 137, 223, 0.4) 100%);
+}
+
+
+@keyframes lightingBlueAnimation {
+    0% {
+        background: -webkit-linear-gradient(top, rgba(45, 137, 223, 0.4) 0%, rgba(45, 167, 223, 0.025) 25%, rgba(45, 167, 223, 0.025) 85%, rgba(45, 137, 223, 0.4) 100%);
+    }
+
+    70% {
+        background: transparent;
+    }
+}
+
+
+@keyframes lightingRedAnimation {
+    0% {
+        background: -webkit-linear-gradient(top, rgba(241, 32, 17, 0.4) 0%, rgba(223, 57, 45, 0.025) 25%, rgba(223, 57, 45, 0.025) 85%, rgba(241, 32, 17, 0.4) 100%);
+    }
+
+    70% {
+        background: transparent;
+    }
+}
+
+@keyframes lightingYellowAnimation {
+    0% {
+        background: -webkit-linear-gradient(top, rgba(235, 220, 18, 0.4) 0%, rgba(223, 220, 45, 0.025) 25%, rgba(223, 220, 45, 0.025) 85%, rgba(235, 220, 18, 0.4) 100%);
+    }
+
+    70% {
+        background: transparent;
+    }
+}
+
+@keyframes lightingDiamondAnimation {
+    0% {
+        background: -webkit-linear-gradient(top, rgba(62, 208, 228, 0.4) 0%, rgba(90, 231, 241, 0.025) 25%, rgba(90, 231, 241, 0.025) 85%, rgba(62, 208, 228, 0.4) 100%);
+    }
+
+    70% {
+        background: transparent;
+    }
+}
+
+@keyframes lightingGreenAnimation {
+    0% {
+        background: -webkit-linear-gradient(top, rgba(62, 228, 62, 0.4) 0%, rgba(90, 241, 148, 0.025) 25%, rgba(90, 241, 148, 0.025) 85%, rgba(62, 228, 62, 0.4) 100%);
+    }
+
+    70% {
+        background: transparent;
+    }
+}
+
 .modal {
     font-family: 'Roboto', sans-serif;
     display: none;
@@ -86,6 +176,7 @@ html {
 }
 
 .roll-info-streigh {
+    padding-top: 5px;
     display: flex;
     justify-content: space-around;
     font-size: 1.3rem;
@@ -103,7 +194,7 @@ html {
 .roll-card {
     max-height: 100%;
     width: 30%;
-    padding: 10px;
+    padding: 5px;
 }
 
 
@@ -257,30 +348,21 @@ html {
 }
 
 .game .inform {
+    font-family: 'Montserrat', sans-serif;
     width: 70%;
-    height: 40%;
-    top: 50%;
+    height: 50%;
+    top: 30%;
     left: -70%;
-    border: 5px solid rgb(80, 43, 0);
     position: absolute;
-    border-radius: 15px;
     z-index: 1;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: rgb(187, 0, 0);
 }
 
-.gold {
-    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-        radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
-}
-
-.white {
-    background: white;
-}
-
-.diamond {
-    background: -webkit-linear-gradient(top, #B9F2FF 0%, #AAE3F0 100%);
-    border: 4px solid #9BD4E1;
-
-}
 
 .move {
     animation: showBannerAnimation 2s 1s;
@@ -309,14 +391,12 @@ html {
 
 /* radio */
 
-
 #radio_buttons {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     position: relative;
     width: 50%;
-    /* margin: 0 auto; */
 }
 
 #radio_buttons a {

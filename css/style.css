@@ -3,6 +3,8 @@
 
 :root {
     --endOfRoll: -90%;
+    --c: rgba(255, 255, 255, 0.7);
+    --t: transparent;
 }
 
 html {
@@ -15,6 +17,18 @@ html {
     box-sizing: border-box;
 }
 
+.site-background {
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent 0,
+            transparent 25%,
+            dodgerblue 0,
+            dodgerblue 50%);
+    background-blend-mode: multiply;
+    background-size: 100px 100px;
+}
+
+
 .light {
     width: 100%;
     height: 100%;
@@ -22,6 +36,7 @@ html {
     left: 0;
     top: 0;
     background: transparent;
+    border: 2px solid gray;
 }
 
 
@@ -123,7 +138,7 @@ html {
 .modal-content .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -203,40 +218,62 @@ html {
     margin: 5vh auto 0;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     font-family: 'Roboto', sans-serif;
 }
 
 .banner {
-    background-color: white;
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 10%;
+    padding: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 300% 300%;
+    animation: Gradient 15s ease infinite;
+    animation-play-state: paused;
+    border: 2px solid #888;
+    box-shadow: 0px 1px 0px gray, 0px px 7px rgba(0, 0, 0, .5);
+    border-radius: 15px;
 }
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+.play,
+.panel {
+    border: 2px solid gray;
+    box-shadow: 0px 1px 0px gray, 0px 3px 7px rgba(0, 0, 0, .5);
+    border-radius: 15px;
+    background-color: white;
+}
+
 
 .game {
     position: relative;
     display: flex;
     margin-bottom: 3vh;
+    background: white;
+    border: 2px solid gray;
+    box-shadow: 0px 1px 0px gray, 0px 3px 5px rgba(0, 0, 0, .5);
+    z-index: -2;
 }
 
-.card:after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 0%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
-    transition: none;
-}
 
-.card:hover:after {
-    width: 120%;
-    background-color: rgba(255, 255, 255, 0);
-    transition: all 0.3s ease-out;
-}
 
 .game .card {
     height: 30vh;
@@ -249,10 +286,11 @@ html {
     overflow: hidden;
 }
 
-
 .play {
     text-align: center;
     display: flex;
+    background-color: white;
+    padding: 10px;
 }
 
 .start-wrapper {
@@ -284,18 +322,18 @@ html {
     background-color: #6513e9;
     box-shadow: 0px 3px 0px #6513e9, 0px 3px 5px rgba(0, 0, 0, .5);
     background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(221, 193, 248), transparent);
+    letter-spacing: 2px;
 }
 
 
 #start {
     height: 50%;
-    font-size: 24px;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 6px;
     text-align: center;
     display: inline-block;
     background-color: #e95713;
-    font-size: 24px;
     box-shadow: 0px 3px 0px #e95713, 0px 3px 5px rgba(0, 0, 0, .5);
     background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(248, 193, 193), transparent);
 }
@@ -371,14 +409,11 @@ html {
 .panel {
     width: 80%;
     margin: 30px 0 20px;
-    border: 2px solid black;
     padding: 10px 10px 10px 10px;
-    border-radius: 15px;
+    font-size: 1.5rem;
+
 }
 
-.panel {
-    font-size: 20px;
-}
 
 .panel .score {
     margin-top: 15px;
@@ -419,8 +454,9 @@ input[type="radio"] {
     display: inline-block;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 5px;
-    font-size: 15px;
+    width: 60%;
+    padding: 8px;
+    font-size: 1.2rem;
     border: 1px solid black;
     animation-iteration-count: infinite;
     transition: 0.3s;
@@ -876,7 +912,7 @@ input[type="radio"] {
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
     .game .card {
-        height: 20vh;
+        height: 21vh;
         margin: 5px;
     }
 }
@@ -887,9 +923,12 @@ input[type="radio"] {
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
 
+    html {
+        font-size: 18px;
+    }
+
     .play label {
         padding: 15px 10px;
-        font-size: 15px;
         border: 1px solid black;
         animation-iteration-count: infinite;
         transition: 0.3s;
@@ -903,7 +942,6 @@ input[type="radio"] {
     .play button {
         width: 55%;
         height: 100px;
-        font-size: 50px;
         letter-spacing: 8px;
     }
 
@@ -911,72 +949,201 @@ input[type="radio"] {
         margin: 0 auto;
     }
 
-    .play-text {
-        font-size: 30px;
-    }
-
     .panel {
-        margin: 100px 0 50px;
+        margin: 80px 0 50px;
     }
 
-    .panel,
-    .score {
-        font-size: 30px;
-    }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+    html {
+        font-size: 22px;
+    }
+
+    .modal-content {
+        width: 60%;
+    }
+
+    .banner {
+        padding: 40px;
+        animation-play-state: running;
+    }
+
+    .play {
+        padding: 15px;
+    }
+
     .panel {
-        margin: -50px 0 60px;
+        padding: 15px;
+        margin: 40px 0 20px;
     }
 
     .game .card {
-        height: 35vh;
+        height: 30vh;
         margin: 20px;
     }
 
-    .panel,
-    .score {
-        font-size: 35px;
+    #button-bid-1 {
+        background-color: #e91313;
+        box-shadow: 0px 4px 0px #e91313, 0px 5px 12px rgba(0, 0, 0, .5);
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(252, 157, 157), transparent);
     }
 
-    .play label {
-        padding: 20px 15px;
-        font-size: 18px;
+    #button-bid-2 {
+        background-color: #178d13;
+        box-shadow: 0px 4px 0px #178d13, 0px 5px 12px rgba(0, 0, 0, .5);
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(184, 252, 157), transparent);
     }
+
+    #button-bid-3 {
+        background-color: #135ee9;
+        box-shadow: 0px 4px 0px #135ee9, 0px 5px 12px rgba(0, 0, 0, .5);
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(157, 238, 252), transparent);
+    }
+
+
+    #input1:checked~#button-bid-1 {
+        box-shadow: 0px 5px 0px #e92b2b, 0px 1px 6px 6px #e92b2b;
+        background-color: #ff0000;
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+    }
+
+    #input2:checked~#button-bid-2 {
+        box-shadow: 0px 5px 0px #178d13, 0px 1px 6px 6px #178d13;
+        background-color: #08b102;
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+    }
+
+    #input3:checked~#button-bid-3 {
+        box-shadow: 0px 5px 0px #135ee9, 0px 1px 6px 6px #135ee9;
+        background-color: #0059ff;
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+
+    }
+
+    #start {
+        box-shadow: 0px 5px 0px #e95713, 0px 8px 15px rgba(0, 0, 0, .5);
+    }
+
+    #show-legend {
+        box-shadow: 0px 5px 0px #6513e9, 0px 8px 15px rgba(0, 0, 0, .5);
+    }
+
 }
 
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-    .panel {
-        margin: -90px 0 40px 0;
-    }
 
-    .play-text {
-        font-size: 40px;
+    .panel {
+        margin: 20px 0 40px 0;
     }
 
     .banner {
-        font-size: 30px;
+        padding: 20px;
+        margin-bottom: 30px;
     }
 
+    .roll {
+        content: url("/img/roll.jpg");
+    }
+
+
     .wrap {
-        width: 65%;
+        width: 55%;
+    }
+
+    .light {
+        border: none;
+    }
+
+    .modal .modal-content {
+        width: 25%;
     }
 
     .play .buttons button {
         margin: 0;
     }
 
-    .game .card {
-        height: 43vh;
-        margin: 20px;
+    .game,
+    .panel {
+        margin: 10px;
     }
 
-    .play label {
-        padding: 25px 20px;
-        font-size: 24px;
+    .game .card {
+        height: 30vh;
+        margin: 15px;
+        border: grey 5px solid;
+        box-shadow: 0px 3px 0px gray, 0px 6px 12px rgba(0, 0, 0, .5);
     }
+
+    .site-background {
+        background:
+            linear-gradient(to bottom left, rgb(245, 27, 53), #0ABFBC);
+    }
+
+    #button-bid-1 {
+        background-color: #e91313;
+        box-shadow: 0px 6px 0px #e91313, 0px 6px 15px rgba(0, 0, 0, .5);
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(252, 157, 157), transparent);
+    }
+
+    #button-bid-2 {
+        background-color: #178d13;
+        box-shadow: 0px 6px 0px #178d13, 0px 6px 15px rgba(0, 0, 0, .5);
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(184, 252, 157), transparent);
+    }
+
+    #button-bid-3 {
+        background-color: #135ee9;
+        box-shadow: 0px 6px 0px #135ee9, 0px 6px 15px rgba(0, 0, 0, .5);
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(157, 238, 252), transparent);
+    }
+
+
+    #input1:checked~#button-bid-1 {
+        box-shadow: 0px 6px 0px #e92b2b, 0px 2px 8px 8px #e92b2b;
+        background-color: #ff0000;
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+    }
+
+    #input2:checked~#button-bid-2 {
+        box-shadow: 0px 6px 0px #178d13, 0px 2px 8px 8px #178d13;
+        background-color: #08b102;
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+    }
+
+    #input3:checked~#button-bid-3 {
+        box-shadow: 0px 6px 0px #135ee9, 0px 2px 8px 8px #135ee9;
+        background-color: #0059ff;
+        background-image: -webkit-radial-gradient(50% 110%, circle farthest-corner, rgb(240, 177, 41), transparent);
+
+    }
+
+    #start {
+        box-shadow: 0px 5px 0px #e95713, 0px 8px 15px rgba(0, 0, 0, .5);
+    }
+
+    #show-legend {
+        box-shadow: 0px 5px 0px #6513e9, 0px 8px 15px rgba(0, 0, 0, .5);
+    }
+
+}
+
+@media only screen and (min-width : 1500px) {
+
+
+    .wrap {
+        width: 55%;
+    }
+
+    .game .card {
+        height: 40vh;
+        margin: 15px;
+        border: grey 5px solid;
+        box-shadow: 0px 3px 0px gray, 0px 6px 12px rgba(0, 0, 0, .5);
+    }
+
+
 }

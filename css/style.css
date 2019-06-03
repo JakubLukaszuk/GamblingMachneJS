@@ -26,6 +26,9 @@ html {
             dodgerblue 50%);
     background-blend-mode: multiply;
     background-size: 100px 100px;
+    height: 100vh;
+    overflow: hidden;
+
 }
 
 
@@ -65,13 +68,13 @@ html {
 }
 
 .lightBlue {
-    background: -webkit-linear-gradient(top, rgba(45, 137, 223, 0.4) 0%, rgba(45, 167, 223, 0.025) 25%, rgba(45, 167, 223, 0.025) 85%, rgba(45, 137, 223, 0.4) 100%);
+    background: -webkit-linear-gradient(top, rgba(45, 137, 223, 0.4) 0%, rgba(45, 167, 223, 0.025) 25%, rgba(45, 167, 223, 0.025) 75%, rgba(45, 137, 223, 0.4) 100%);
 }
 
 
 @keyframes lightingBlueAnimation {
     0% {
-        background: -webkit-linear-gradient(top, rgba(45, 137, 223, 0.4) 0%, rgba(45, 167, 223, 0.025) 25%, rgba(45, 167, 223, 0.025) 85%, rgba(45, 137, 223, 0.4) 100%);
+        background: -webkit-linear-gradient(top, rgba(45, 137, 223, 0.4) 0%, rgba(45, 167, 223, 0.025) 25%, rgba(45, 167, 223, 0.025) 75%, rgba(45, 137, 223, 0.4) 100%);
     }
 
     70% {
@@ -82,7 +85,7 @@ html {
 
 @keyframes lightingRedAnimation {
     0% {
-        background: -webkit-linear-gradient(top, rgba(241, 32, 17, 0.4) 0%, rgba(223, 57, 45, 0.025) 25%, rgba(223, 57, 45, 0.025) 85%, rgba(241, 32, 17, 0.4) 100%);
+        background: -webkit-linear-gradient(top, rgba(241, 32, 17, 0.4) 0%, rgba(223, 57, 45, 0.025) 25%, rgba(223, 57, 45, 0.025) 75%, rgba(241, 32, 17, 0.4) 100%);
     }
 
     70% {
@@ -915,13 +918,51 @@ input[type="radio"] {
         height: 21vh;
         margin: 5px;
     }
+
+
+    .banner {
+        margin-bottom: 30px;
+    }
+
+    .panel {
+        margin: 25px 0 5px;
+        padding: 10px;
+    }
 }
 
+@media only screen and (min-width : 420px) {
+
+    .game .card {
+        height: 25vh;
+        margin: 5px;
+    }
+
+    .wrap {
+        width: 85%;
+    }
+}
+
+
 /* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {}
+@media only screen and (min-width : 480px) {
+    .panel {
+        margin: 60px 0 5px;
+        padding: 15px;
+    }
+
+    .banner {
+        margin-bottom: 60px;
+    }
+
+
+}
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+
+    .wrap {
+        width: 85%;
+    }
 
     html {
         font-size: 18px;
@@ -950,9 +991,12 @@ input[type="radio"] {
     }
 
     .panel {
-        margin: 80px 0 50px;
+        margin: 30px 0 10px;
     }
 
+    .light {
+        border: none;
+    }
 }
 
 /* Medium Devices, Desktops */
@@ -962,12 +1006,17 @@ input[type="radio"] {
     }
 
     .modal-content {
-        width: 60%;
+        width: 50%;
     }
 
     .banner {
-        padding: 40px;
+        padding: 20px;
+        margin-bottom: 60px;
         animation-play-state: running;
+    }
+
+    .wrap {
+        width: 80%;
     }
 
     .play {
@@ -976,11 +1025,11 @@ input[type="radio"] {
 
     .panel {
         padding: 15px;
-        margin: 40px 0 20px;
+        margin: 30px 0 10px;
     }
 
     .game .card {
-        height: 30vh;
+        height: 35vh;
         margin: 20px;
     }
 
@@ -1030,17 +1079,30 @@ input[type="radio"] {
         box-shadow: 0px 5px 0px #6513e9, 0px 8px 15px rgba(0, 0, 0, .5);
     }
 
+    .site-background {
+        background:
+            linear-gradient(to bottom left, rgb(245, 27, 53), #0ABFBC);
+    }
+
+    .banner {
+        animation-play-state: running;
+    }
+
+
 }
 
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 
+
     .panel {
-        margin: 20px 0 40px 0;
+        margin: 50px 0 5px 0;
+        padding: 20px;
     }
 
     .banner {
+        margin-top: 0;
         padding: 20px;
         margin-bottom: 30px;
     }
@@ -1054,9 +1116,6 @@ input[type="radio"] {
         width: 55%;
     }
 
-    .light {
-        border: none;
-    }
 
     .modal .modal-content {
         width: 25%;
@@ -1066,8 +1125,7 @@ input[type="radio"] {
         margin: 0;
     }
 
-    .game,
-    .panel {
+    .game {
         margin: 10px;
     }
 
@@ -1078,10 +1136,7 @@ input[type="radio"] {
         box-shadow: 0px 3px 0px gray, 0px 6px 12px rgba(0, 0, 0, .5);
     }
 
-    .site-background {
-        background:
-            linear-gradient(to bottom left, rgb(245, 27, 53), #0ABFBC);
-    }
+
 
     #button-bid-1 {
         background-color: #e91313;
@@ -1129,9 +1184,30 @@ input[type="radio"] {
         box-shadow: 0px 5px 0px #6513e9, 0px 8px 15px rgba(0, 0, 0, .5);
     }
 
+    .panel .score {
+        margin-top: 0;
+    }
+
+
 }
 
 @media only screen and (min-width : 1500px) {
+
+
+    .panel {
+        margin: 10px 0 5px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .banner {
+        margin-top: 0;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
 
 
     .wrap {
